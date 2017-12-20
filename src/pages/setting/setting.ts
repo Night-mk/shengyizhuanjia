@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RegisterPage } from '../register/register';
+import {LoginPage} from "../../pages/login/login";
 
 /**
- * Generated class for the WelcomePage page.
+ * Generated class for the SettingPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,24 +11,24 @@ import { RegisterPage } from '../register/register';
 
 @IonicPage()
 @Component({
-  selector: 'page-welcome',
-  templateUrl: 'welcome.html',
+  selector: 'page-setting',
+  templateUrl: 'setting.html',
 })
-export class WelcomePage {
+export class SettingPage {
 
+  loginPage:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.loginPage = LoginPage;
   }
 
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad WelcomePage');
+    console.log('ionViewDidLoad SettingPage');
   }
 
   /*
-      添加进入注册页的方法
-      navCtrl的push方法可以push页面还能左上角返回
+    拨打电话
    */
-  toRegister(){
-    this.navCtrl.push(RegisterPage);
+  phonecall(phoneNum:string){
+      window.location.href='tel:'+phoneNum;
   }
-
 }

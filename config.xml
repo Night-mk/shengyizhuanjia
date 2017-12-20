@@ -5,6 +5,7 @@
     <author email="nightcatter@outlook.com" href="http://ionicframework.com/">170327050 MuKe</author>
     <content src="index.html" />
     <access origin="*" />
+    <access origin="tel:*" lanch-external="yes" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />

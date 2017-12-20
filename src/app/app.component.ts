@@ -7,6 +7,11 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import {WelcomePage} from "../pages/welcome/welcome";
 import {LocalStorageProvider} from '../providers/local-storage/local-storage';
+import {RegisterPage} from "../pages/register/register";
+import {LoginPage} from "../pages/login/login";
+import {SettingPage} from "../pages/setting/setting";
+import {ShopPage} from "../pages/shop/shop";
+import {EditshopPage} from "../pages/editshop/editshop";
 
 @Component({
   templateUrl: 'app.html'
@@ -15,9 +20,9 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // rootPage: any = HomePage;
-  rootPage:any = WelcomePage;
+  rootPage:any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any,  icon: string}>;
 
   //构造函数做依赖注入
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
@@ -26,24 +31,27 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      //{ title: 'WelcomePage', component: }
+      // { title: 'Home', component: HomePage, icon: 'chatboxes' },
+      // { title: 'List', component: ListPage, icon: 'chatboxes' },
+      { title: '开店论坛', component: HomePage, icon: 'chatboxes' },
+      { title: '手机橱窗', component: ListPage, icon: 'create' },
+      { title: '邀请有礼', component: ListPage, icon: 'git-merge' },
+      { title: '资金账户', component: ListPage, icon: 'cash' },
     ];
 
     //添加依赖
-    let appConfig:any = this.LocalStorageService.get('App',{
-      isRun: false,
-      version: '0.0.1',
-      author: 'catterMu'
-    });
-    if(appConfig.isRun==false){
-      this.rootPage = WelcomePage;
-      appConfig.isRun = true;
-      this.LocalStorageService.set('App',appConfig);
-    }else{
-      this.rootPage = HomePage;
-    }
+    // let appConfig:any = this.LocalStorageService.get('App',{
+    //   isRun: false,
+    //   version: '0.0.1',
+    //   author: 'catterMu'
+    // });
+    // if(appConfig.isRun==false){
+    //   this.rootPage = WelcomePage;
+    //   appConfig.isRun = true;
+    //   this.LocalStorageService.set('App',appConfig);
+    // }else{
+    //   this.rootPage = RegisterPage;
+    // }
 
 
   }

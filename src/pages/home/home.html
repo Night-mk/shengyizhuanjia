@@ -1,18 +1,103 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>首页</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only><ion-icon name="calendar"></ion-icon></button>
+      <button ion-button icon-only><ion-icon name="notifications"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+  <div text-center>
+    <img class="logo" src="assets/images/home/androidbanner.png" alt="">
+  </div>
+  <ion-grid [ngClass]="{'stable-bg':true}">
+    <ion-row>
+      <ion-col>
+        <h6>今日</h6>
+        <!--过滤器-->
+        <h4><span>{{todayPriceNow | number:'1.2-2'}}元</span></h4>
+        <p>比昨日:<span [ngClass]="{'less-equal':todayPriceNow-todayPriceLeft <= 0,'greater':todayPriceNow-todayPriceLeft > 0}">{{todayPriceNow-todayPriceLeft| number:'1.2-2'}}</span>
+          <ion-icon *ngIf="todayPriceNow-todayPriceLeft>0" name="arrow-round-up"></ion-icon>
+          <ion-icon *ngIf="todayPriceNow-todayPriceLeft<0" name="arrow-round-down"></ion-icon>
+          <ion-icon *ngIf="todayPriceNow-todayPriceLeft==0" name="arrow-round-forward"></ion-icon>
+        </p>
+      </ion-col>
+      <ion-col>
+        <h6>七日</h6>
+        <h4>{{123.456| number:'1.2-2'}}<span>元</span></h4>
+        <p>比同期：<span [ngClass]="{'less-equal':0 <= 0,'greater':0 > 0}">0.00</span>&nbsp;<ion-icon name="arrow-round-forward"></ion-icon></p>
+      </ion-col>
+      <ion-col>
+        <h6>本月</h6>
+        <h4>{{123.456 | number:'1.2-2'}}<span>元</span></h4>
+        <p>比同期：<span [ngClass]="{'less-equal':-25.6 <= 0,'greater':-25.6 > 0}">-25.60</span>&nbsp;<ion-icon name="arrow-round-down"></ion-icon></p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--第一行-->
+  <div>
+    <ion-row class="quick-actions">
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <!--<ion-icon name="apps"></ion-icon>-->
+          <img class="icon-size1" src="assets/images/home/add_salse.png" alt="">
+          <div>新增商品</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <img class="icon-size1" src="assets/images/home/add_user.png" alt="">
+          <div>新增会员</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <img class="icon-size1" src="assets/images/home/sales_account.png" alt="">
+          <div>收银记账</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <img class="icon-size1" src="assets/images/home/a_note.png" alt="">
+          <div>支出管理</div>
+        </a>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div>
+    <ion-row class="quick-actions">
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <img class="icon-size1" src="assets/images/home/a_note.png" alt="">
+          <div>商品管理</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <img class="icon-size1" src="assets/images/home/a_note.png" alt="">
+          <div>会员管理</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <img class="icon-size1" src="assets/images/home/a_note.png" alt="">
+          <div>查询销售</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <img class="icon-size1" src="assets/images/home/a_note.png" alt="">
+          <div>智能分析</div>
+        </a>
+      </ion-col>
+    </ion-row>
+  </div>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <copy-right></copy-right>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

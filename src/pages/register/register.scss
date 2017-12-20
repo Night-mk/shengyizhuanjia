@@ -1,0 +1,20 @@
+page-register {
+  .logo{
+    width: 33%;
+    justify-content: center;
+  }
+
+  .register-icon-line{
+    height: 1px;
+    width: 100%;
+    background-color: #dedede;
+  }
+
+  /*
+    按钮基本颜色
+   */
+  .btn-base-color{
+    background-color: #f76e4b;
+    border-color: #f76e4b;
+  }
+}
