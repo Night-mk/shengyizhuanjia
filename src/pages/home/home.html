@@ -20,22 +20,41 @@
       <ion-col>
         <h6>今日</h6>
         <!--过滤器-->
-        <h4><span>{{todayPriceNow | number:'1.2-2'}}元</span></h4>
-        <p>比昨日:<span [ngClass]="{'less-equal':todayPriceNow-todayPriceLeft <= 0,'greater':todayPriceNow-todayPriceLeft > 0}">{{todayPriceNow-todayPriceLeft| number:'1.2-2'}}</span>
-          <ion-icon *ngIf="todayPriceNow-todayPriceLeft>0" name="arrow-round-up"></ion-icon>
-          <ion-icon *ngIf="todayPriceNow-todayPriceLeft<0" name="arrow-round-down"></ion-icon>
-          <ion-icon *ngIf="todayPriceNow-todayPriceLeft==0" name="arrow-round-forward"></ion-icon>
+        <h4><span>{{CompanyPrice.todayPriceNow | number:'1.2-2'}}元</span></h4>
+        <p>比昨日:
+          <span [ngClass]="{'less-equal':CompanyPrice.todayPriceNow-CompanyPrice.todayPriceLeft <= 0,
+                            'greater':CompanyPrice.todayPriceNow-CompanyPrice.todayPriceLeft > 0}">
+          {{CompanyPrice.todayPriceNow-CompanyPrice.todayPriceLeft| number:'1.2-2'}}</span>
+          <ion-icon *ngIf="CompanyPrice.todayPriceNow-CompanyPrice.todayPriceLeft>0" name="arrow-round-up"></ion-icon>
+          <ion-icon *ngIf="CompanyPrice.todayPriceNow-CompanyPrice.todayPriceLeft<0" name="arrow-round-down"></ion-icon>
+          <ion-icon *ngIf="CompanyPrice.todayPriceNow-CompanyPrice.todayPriceLeft==0" name="arrow-round-forward"></ion-icon>
         </p>
       </ion-col>
       <ion-col>
         <h6>七日</h6>
-        <h4>{{123.456| number:'1.2-2'}}<span>元</span></h4>
-        <p>比同期：<span [ngClass]="{'less-equal':0 <= 0,'greater':0 > 0}">0.00</span>&nbsp;<ion-icon name="arrow-round-forward"></ion-icon></p>
+        <h4>{{CompanyPrice.sevenDaysPriceNow| number:'1.2-2'}}<span>元</span></h4>
+        <p>比同期:
+          <span [ngClass]="{'less-equal':CompanyPrice.sevenDaysPriceNow-CompanyPrice.sevenDaysPriceLeft <= 0,
+                            'greater':CompanyPrice.sevenDaysPriceNow-CompanyPrice.sevenDaysPriceLeft > 0}">
+              {{CompanyPrice.sevenDaysPriceNow-CompanyPrice.sevenDaysPriceLeft| number:'1.2-2'}}
+          </span>
+          <ion-icon *ngIf="CompanyPrice.sevenDaysPriceNow-CompanyPrice.sevenDaysPriceLeft>0" name="arrow-round-up"></ion-icon>
+          <ion-icon *ngIf="CompanyPrice.sevenDaysPriceNow-CompanyPrice.sevenDaysPriceLeft<0" name="arrow-round-down"></ion-icon>
+          <ion-icon *ngIf="CompanyPrice.sevenDaysPriceNow-CompanyPrice.sevenDaysPriceLeft==0" name="arrow-round-forward"></ion-icon>
+        </p>
       </ion-col>
       <ion-col>
         <h6>本月</h6>
-        <h4>{{123.456 | number:'1.2-2'}}<span>元</span></h4>
-        <p>比同期：<span [ngClass]="{'less-equal':-25.6 <= 0,'greater':-25.6 > 0}">-25.60</span>&nbsp;<ion-icon name="arrow-round-down"></ion-icon></p>
+        <h4>{{CompanyPrice.monthPriceNow| number:'1.2-2'}}<span>元</span></h4>
+        <p>比同期:
+          <span [ngClass]="{'less-equal':CompanyPrice.monthPriceNow-CompanyPrice.monthPriceLeft<= 0,
+                            'greater': CompanyPrice.monthPriceNow-CompanyPrice.monthPriceLeft> 0}">
+            {{ CompanyPrice.monthPriceNow-CompanyPrice.monthPriceLeft | number:'1.2-2' }}
+          </span>
+          <ion-icon *ngIf="CompanyPrice.monthPriceNow-CompanyPrice.monthPriceLeft>0" name="arrow-round-up"></ion-icon>
+          <ion-icon *ngIf="CompanyPrice.monthPriceNow-CompanyPrice.monthPriceLeft<0" name="arrow-round-down"></ion-icon>
+          <ion-icon *ngIf="CompanyPrice.monthPriceNow-CompanyPrice.monthPriceLeft==0" name="arrow-round-forward"></ion-icon>
+        </p>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -68,35 +87,65 @@
         </a>
       </ion-col>
     </ion-row>
-  </div>
+  </div><!-- end 第一行-->
+  <!--第二行-->
   <div>
     <ion-row class="quick-actions">
       <ion-col class="quick-action-item">
         <a class="shortcut" href="">
-          <img class="icon-size1" src="assets/images/home/a_note.png" alt="">
+          <img class="icon-size1" src="assets/images/home/sales_management.png" alt="">
           <div>商品管理</div>
         </a>
       </ion-col>
       <ion-col class="quick-action-item">
         <a class="shortcut" href="">
-          <img class="icon-size1" src="assets/images/home/a_note.png" alt="">
+          <img class="icon-size1" src="assets/images/home/user_management.png" alt="">
           <div>会员管理</div>
         </a>
       </ion-col>
       <ion-col class="quick-action-item">
         <a class="shortcut" href="">
-          <img class="icon-size1" src="assets/images/home/a_note.png" alt="">
+          <img class="icon-size1" src="assets/images/home/shop_management.png" alt="">
           <div>查询销售</div>
         </a>
       </ion-col>
       <ion-col class="quick-action-item">
         <a class="shortcut" href="">
-          <img class="icon-size1" src="assets/images/home/a_note.png" alt="">
+          <img class="icon-size1" src="assets/images/home/analysis.png" alt="">
           <div>智能分析</div>
         </a>
       </ion-col>
     </ion-row>
-  </div>
+  </div><!-- end 第二行-->
+  <!--第三行-->
+  <div>
+    <ion-row class="quick-actions">
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <img class="icon-size1" src="assets/images/home/gongying_more.png" alt="">
+          <div>供应商管理</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <img class="icon-size1" src="assets/images/home/guandan_more.png" alt="">
+          <div>挂单</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <img class="icon-size1" src="assets/images/home/image_addsales.png" alt="">
+          <div>高级功能</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut" href="">
+          <!--<img class="icon-size1" src="assets/images/home/image_addsales.png" alt="">-->
+          <!--<div>高级功能</div>-->
+        </a>
+      </ion-col>
+    </ion-row>
+  </div><!-- end 第三行-->
 
   <copy-right></copy-right>
 

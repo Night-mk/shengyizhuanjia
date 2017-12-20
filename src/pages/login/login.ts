@@ -5,6 +5,7 @@ import { HomePage } from '../../pages/home/home';
 import {RegisterPage} from "../register/register";
 import { Md5 } from "ts-md5/dist/md5";
 import {LocalStorageProvider} from '../../providers/local-storage/local-storage';
+import { MyApp } from '../../app/app.component';
 
 /**
  * Generated class for the LoginPage page.
@@ -39,6 +40,7 @@ export class LoginPage {
         //判断用户名（邮箱，手机）是否在localstorage数据库中
         let userName = null;
         let userPass = null;
+        let userAccount=null;
         let userIndex = 0;
         while(!this.LocalStorageService.isEmpty('user'+userIndex)){
             let userInfo = this.LocalStorageService.get('user'+userIndex, null);
@@ -46,6 +48,7 @@ export class LoginPage {
                 if(this.username==userInfo.phone){userName=userInfo.phone;}
                 else{userName=userInfo.email;}
                 userPass = userInfo.password;
+                userAccount = userInfo;
                 break;
             }
             userIndex++;
@@ -54,7 +57,9 @@ export class LoginPage {
         //可以登录
         if(this.username==userName && Md5.hashStr(this.password).toString()==userPass){
             console.log("login succeed!");
-            this.navCtrl.push(HomePage);
+            this.setCurrentAccount(userAccount.shopName,userAccount.phone);
+            //设置新的根page
+            this.navCtrl.setRoot(HomePage);
         }else if(this.username==''){
             let toast = this.toastCtrl.create({
                 message:'用户名不能为空',
@@ -83,5 +88,18 @@ export class LoginPage {
      */
     toRegister(){
         this.navCtrl.push(RegisterPage);
+    }
+
+    /**
+     * 设置当前账户信息
+     * @param name
+     * @param phone
+     */
+    setCurrentAccount(name:string,phone:string){
+        //设置当前账户
+        this.LocalStorageService.set('currentAccount',{
+            'username': name,
+            'phone': phone
+        });
     }
 }
