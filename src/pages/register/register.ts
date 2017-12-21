@@ -40,6 +40,17 @@ export class RegisterPage {
         confirmPassword:'',
         code:''
     };
+    registerInfo = {
+        phone: '',
+        password: '',
+        email: '',
+        shopName: '',
+        shopNameShort:'',
+        masterName:'',
+        shopPhone:'',
+        tradeType:'',
+        registerTime:''
+    };
     private seconds=0;
     constructor(public navCtrl: NavController, public navParams: NavParams, private Authentication:AuthenticationProvider,
                 private toastCtrl:ToastController, private LocalStorageService: LocalStorageProvider) {
@@ -138,12 +149,13 @@ export class RegisterPage {
             while(!this.LocalStorageService.isEmpty('user'+userIndex)){
                 userIndex++;
             }
-            this.LocalStorageService.set('user'+userIndex,{
-                phone: this.register.phone,
-                password: password,
-                email: this.register.email,
-                shopName: this.register.shopName
-            });
+            this.registerInfo.phone = this.register.phone;
+            this.registerInfo.password = password;
+            this.registerInfo.email = this.register.email;
+            this.registerInfo.shopName = this.register.shopName;
+            let timeNow = new Date();
+            this.registerInfo.registerTime = timeNow.getFullYear()+'-'+(timeNow.getMonth()+1)+'-'+timeNow.getDate();
+            this.LocalStorageService.set('user'+userIndex,this.registerInfo);
             this.next();
         }else{
             let toast = this.toastCtrl.create({

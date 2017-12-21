@@ -66,4 +66,16 @@ export class LocalStorageProvider {
       return true;
     }
   }
+
+  /**
+   * clear函数封装
+   * @param key
+   */
+  clear(key:string){
+    if(key==null){
+      this.storage.clear();
+    }else{
+      let value:any = this.storage.removeItem(key);
+    }
+  }
 }

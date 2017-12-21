@@ -21,7 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // rootPage: any = HomePage;
-  rootPage:any = HomePage;
+  rootPage:any = SettingPage;
   pages: Array<{title: string, component: any,  icon: string}>;
   currentUser={
     username:'',

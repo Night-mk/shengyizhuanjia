@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>shop</ion-title>
+    <ion-title>店铺信息</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,16 +15,31 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item [navPush]="editShopPage" [navParams]="{title:'店铺名称'}">店铺名称</button>
-    <button ion-item [navPush]="loginPage">店铺简称</button>
-    <button ion-item [navPush]="loginPage">注册时间</button>
-    <button ion-item [navPush]="loginPage">手机号码</button>
+    <button ion-item [navPush]="editShopPage" [navParams]="{title:'店铺名称', property:registerInfo.shopName}">
+      店铺名称
+      <ion-note item-end>{{ registerInfo.shopName }}</ion-note>
+    </button>
+    <button ion-item [navPush]="editShopPage" [navParams]="{title:'店铺简称',property:registerInfo.shopNameShort}">
+      店铺简称
+      <ion-note item-end>{{ registerInfo.shopNameShort }}</ion-note>
+    </button>
+    <ion-item >注册时间 <ion-note item-end>{{ registerInfo.registerTime }}</ion-note></ion-item>
+    <ion-item >手机号码 <ion-note item-end>{{ registerInfo.phone }}</ion-note></ion-item>
   </ion-list>
   <ion-list>
-    <button ion-item [navPush]="loginPage">店铺名称</button>
-    <button ion-item [navPush]="loginPage">店铺简称</button>
-    <button ion-item [navPush]="loginPage">注册时间</button>
-    <button ion-item [navPush]="loginPage">手机号码</button>
+    <ion-item>电子邮件 <ion-note item-end>{{ registerInfo.email }}</ion-note></ion-item>
+    <button ion-item [navPush]="editShopPage" [navParams]="{title:'店主姓名', property:registerInfo.masterName}">
+      店主姓名
+      <ion-note item-end>{{ registerInfo.masterName }}</ion-note>
+    </button>
+    <button ion-item [navPush]="editShopPage" [navParams]="{title:'店铺电话', property:registerInfo.shopPhone}">
+      店铺电话
+      <ion-note item-end>{{ registerInfo.shopPhone }}</ion-note>
+    </button>
+    <button ion-item [navPush]="editShopPage" [navParams]="{title:'行业类型', property:registerInfo.tradeType}">
+      行业类型
+      <ion-note item-end>{{ registerInfo.tradeType }}</ion-note>
+    </button>
   </ion-list>
 
 </ion-content>

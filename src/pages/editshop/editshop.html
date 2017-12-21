@@ -14,11 +14,32 @@
 
 
 <ion-content padding>
-  <ion-list>
+  <!--非修改密码时-->
+  <ion-list *ngIf="title!='修改密码'">
     <ion-item>
       <ion-label fixed>{{title}}</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" placeholder='{{ property }}'
+                 #details="ngModel" [(ngModel)]="changeDetails"></ion-input>
     </ion-item>
-    <button color="primary" ion-button block>保存</button>
+    <button color="primary" ion-button block (click)="saveChange()">保存</button>
+  </ion-list>
+
+  <!--修改密码时-->
+  <ion-list *ngIf="title=='修改密码'">
+    <ion-item>
+      <ion-label>请输入旧密码</ion-label>
+      <ion-input type="password" #oldPw="ngModel" [(ngModel)]="oldPwd"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>请输入新密码</ion-label>
+      <ion-input type="password" #newPw="ngModel" [(ngModel)]="newPwd"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>请再输入一次</ion-label>
+      <!--<ion-input type="password" #newPwA="ngModel" [(ngModel)]="newPwA"></ion-input>-->
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <button color="primary" ion-button block (click)="saveChange()">确定</button>
   </ion-list>
 </ion-content>

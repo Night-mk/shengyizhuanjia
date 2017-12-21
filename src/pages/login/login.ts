@@ -57,7 +57,7 @@ export class LoginPage {
         //可以登录
         if(this.username==userName && Md5.hashStr(this.password).toString()==userPass){
             console.log("login succeed!");
-            this.setCurrentAccount(userAccount.shopName,userAccount.phone);
+            this.setCurrentAccount('user'+userIndex,userAccount.shopName,userAccount.phone);
             //设置新的根page
             this.navCtrl.setRoot(HomePage);
         }else if(this.username==''){
@@ -95,9 +95,10 @@ export class LoginPage {
      * @param name
      * @param phone
      */
-    setCurrentAccount(name:string,phone:string){
+    setCurrentAccount(user:string, name:string, phone:string){
         //设置当前账户
         this.LocalStorageService.set('currentAccount',{
+            'user':user,
             'username': name,
             'phone': phone
         });

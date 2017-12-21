@@ -19,6 +19,7 @@ import {CopyRightComponent} from "../components/copy-right/copy-right";
 import {SettingPage} from "../pages/setting/setting";
 import {ShopPage} from "../pages/shop/shop";
 import {EditshopPage} from "../pages/editshop/editshop";
+import {AboutUsPage} from "../pages/about-us/about-us";
 
 @NgModule({
   //组件模块声明
@@ -33,7 +34,8 @@ import {EditshopPage} from "../pages/editshop/editshop";
     CopyRightComponent,
     SettingPage,
     ShopPage,
-    EditshopPage
+    EditshopPage,
+      AboutUsPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import {EditshopPage} from "../pages/editshop/editshop";
     ForgotPasswordPage,
     SettingPage,
     ShopPage,
-    EditshopPage
+    EditshopPage,
+      AboutUsPage
   ],
   //服务
   providers: [

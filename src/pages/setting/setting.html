@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>设置</ion-title>
+    <ion-title>店铺设置</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,18 +15,18 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item [navPush]="loginPage">店铺设置</button>
-    <button ion-item [navPush]="loginPage">密码</button>
+    <button ion-item [navPush]="shopPage">店铺设置</button>
+    <button ion-item [navPush]="editPage" [navParams]="{title:'修改密码'}">密码</button>
   </ion-list>
   <ion-list>
-    <button ion-item [navPush]="loginPage">关于我们</button>
-    <ion-item (click)="phonecall('15960033318')">
+    <button ion-item [navPush]="aboutusPage">关于我们</button>
+    <ion-item (click)="phonecall('13110547198')">
       联系客服
-      <ion-note item-end>15960033318</ion-note>
+      <ion-note item-end>13110547198</ion-note>
     </ion-item>
-    <button ion-item [navPush]="loginPage">版本号: 0.0.1</button>
+    <ion-item>版本号: 0.0.1</ion-item>
   </ion-list>
   <ion-list>
-    <button ion-item [navPush]="loginPage">安全退出</button>
+    <button ion-item (click)="logOut()">安全退出</button>
   </ion-list>
 </ion-content>
