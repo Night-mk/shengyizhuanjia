@@ -20,6 +20,9 @@ import {SettingPage} from "../pages/setting/setting";
 import {ShopPage} from "../pages/shop/shop";
 import {EditshopPage} from "../pages/editshop/editshop";
 import {AboutUsPage} from "../pages/about-us/about-us";
+import {AddCategoryPage} from "../pages/add-category/add-category";
+import {CategoryListComponent} from "../components/category-list/category-list";
+import { CategoryProvider } from '../providers/category/category';
 
 @NgModule({
   //组件模块声明
@@ -35,7 +38,9 @@ import {AboutUsPage} from "../pages/about-us/about-us";
     SettingPage,
     ShopPage,
     EditshopPage,
-      AboutUsPage
+    AboutUsPage,
+    CategoryListComponent,
+    AddCategoryPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,8 @@ import {AboutUsPage} from "../pages/about-us/about-us";
     SettingPage,
     ShopPage,
     EditshopPage,
-      AboutUsPage
+    AboutUsPage,
+    AddCategoryPage
   ],
   //服务
   providers: [
@@ -67,7 +73,8 @@ import {AboutUsPage} from "../pages/about-us/about-us";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LocalStorageProvider,
-    AuthenticationProvider
+    AuthenticationProvider,
+    CategoryProvider
   ]
 })
 export class AppModule {}

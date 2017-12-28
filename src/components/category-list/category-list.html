@@ -1,0 +1,40 @@
+<!-- Generated template for the CategoryListComponent component -->
+
+<ion-content class="content-box content-left">
+  <ion-list no-margin>
+    <ion-item color="gray">大分类</ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let bigCategory of categories" color="gray"
+        (click)="selectCategory(bigCategory.name)"
+        [ngClass]="{'item-active': bigCategory.id==activeCategoryIndex+1}">
+      {{bigCategory.name}}
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-content class="content-box content-right">
+  <ion-list no-margin>
+    <ion-item>小分类</ion-item>
+  </ion-list>
+  <ion-list no-margin>
+    <button ion-item *ngFor="let smallCategory of categories[activeCategoryIndex].children"
+        (click)="selectSubCategory(smallCategory.name)" >
+      {{smallCategory.name}}
+    </button>
+  </ion-list>
+  <ion-item (click)="gotoAddCategory()" >
+    <ion-icon name="add-circle" item-start color="itemBlue"></ion-icon>
+    新增小分类
+  </ion-item>
+  <ion-footer>
+    <ion-toolbar>
+      <span *ngIf="categories[activeCategoryIndex].children.length==0">目前没有小分类</span>
+      <span *ngIf="categories[activeCategoryIndex].children.length!=0">共{{categories[activeCategoryIndex].children.length}}种商品分类</span>
+      <ion-icon class="actionSheetBox" name="more" (click)="presentActionSheet()"></ion-icon>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>
+
+
+

@@ -61,7 +61,7 @@
                                    #phone="ngModel" [(ngModel)]="register.phone">
                         </ion-input>
                     </ion-item>
-                    <ion-grid *ngIf="phone.invalid && phone.touched">
+                    <ion-grid *ngIf="phone.invalid && phone.touche">
                         <p [hidden]="!phone.errors?.required">请输入手机号码</p>
                         <p [hidden]="!phone.errors?.pattern">您输入的手机号格式不正确</p>
                     </ion-grid>

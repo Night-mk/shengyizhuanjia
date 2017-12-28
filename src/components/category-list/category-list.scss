@@ -1,0 +1,33 @@
+category-list {
+  .content-box{
+    display: inline-flex;
+    flex-direction: row;
+  }
+  .content-left{
+    width: 40%;
+    background-color: #CCCCCC;
+  }
+  .content-right{
+    width: 59%;
+  }
+
+  .item-active{
+    background-color: #fff;
+    border-left-color: color($colors, primary);
+    border-left-width: 4px;
+    border-left-style: solid;
+  }
+  //.item-solid{
+  //  background-color: #CCCCCC;
+  //  border-left-color: color($colors, gray);
+  //  border-left-width: 0px;
+  //  border-left-style: none;
+  //}
+  .actionSheetBox{
+    height: 18px;
+    padding: 0 5px;
+    border: 1px solid #000000;
+    border-radius: 10%;
+    float: right;
+  }
+}

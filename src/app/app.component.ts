@@ -13,6 +13,7 @@ import {LoginPage} from "../pages/login/login";
 import {SettingPage} from "../pages/setting/setting";
 import {ShopPage} from "../pages/shop/shop";
 import {EditshopPage} from "../pages/editshop/editshop";
+import {AddCategoryPage} from "../pages/add-category/add-category";
 
 @Component({
   templateUrl: 'app.html'
@@ -20,8 +21,7 @@ import {EditshopPage} from "../pages/editshop/editshop";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // rootPage: any = HomePage;
-  rootPage:any = SettingPage;
+  rootPage:any = LoginPage;
   pages: Array<{title: string, component: any,  icon: string}>;
   currentUser={
     username:'',

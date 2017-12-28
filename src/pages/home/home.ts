@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {AddCategoryPage} from "../../pages/add-category/add-category";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
 
   CompanyPrice={
     todayPriceNow: 0,
@@ -16,8 +16,12 @@ export class HomePage {
     monthPriceNow: 0,
     monthPriceLeft: 0
   };
+  Pages={
+    addCategory: AddCategoryPage
+  };
   constructor(public navCtrl: NavController) {
     this.InitPrice();
+    this.Pages.addCategory = AddCategoryPage;
   }
 
   /**
